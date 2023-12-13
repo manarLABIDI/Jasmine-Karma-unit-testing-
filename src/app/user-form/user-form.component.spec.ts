@@ -22,7 +22,7 @@ describe('UserFormComponent', () => {
   });
 
   it('should submit the form', () => {
-    spyOn(console, 'log');
+    spyOn(console, 'log');/// create a spy on the console.log
     component.userName = 'John Doe';
     component.userEmail = 'john.doe@example.com';
     component.submitForm();

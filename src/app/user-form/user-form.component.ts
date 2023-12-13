@@ -1,5 +1,5 @@
-// src/app/user-form/user-form.component.ts
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -7,11 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent {
+  @ViewChild('userForm') userForm!: NgForm; // Reference to the NgForm directive
+
   userName: string = '';
   userEmail: string = '';
 
   submitForm() {
-    
     console.log('Form submitted:', this.userName, this.userEmail);
+    
+    // Reset the form after submission
+    if (this.userForm) {
+      this.userForm.resetForm();
+    }
   }
 }
